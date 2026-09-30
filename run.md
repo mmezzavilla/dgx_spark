@@ -40,11 +40,11 @@ docker ps
 
 With X11 NR scope: 
 ```bash
-docker run --rm -it   --gpus all   --network host   --privileged   -e DISPLAY=$DISPLAY   -v /tmp/.X11-unix:/tmp/.X11-unix:rw   -v /dev/bus/usb:/dev/bus/usb   -v ~/sionna-rk/nr-softmodem-dev:/opt/oai-gnb/bin/nr-softmodem:ro   -v ~/sionna-rk/ext/openairinterface5g/targets/PROJECTS/GENERIC-NR-5GC/CONF/fiu_n78.conf:/opt/oai-gnb/etc/gnb.conf:ro   --entrypoint /opt/oai-gnb/bin/nr-softmodem   oai-gnb-cuda:latest   -O /opt/oai-gnb/etc/gnb.conf   --sa   -E   -d   --continuous-tx   --gNBs.[0].min_rxtxtime 6   --RUs.[0].if_freq 500000000 --RUs.[0].att_rx 20 --RUs.[0].att_tx 20 
+docker run --rm -it   --gpus all   --network host   --privileged   -e DISPLAY=$DISPLAY   -v /tmp/.X11-unix:/tmp/.X11-unix:rw   -v /dev/bus/usb:/dev/bus/usb   -v ~/sionna-rk/nr-softmodem-dev:/opt/oai-gnb/bin/nr-softmodem:ro   -v ~/sionna-rk/ext/openairinterface5g/targets/PROJECTS/GENERIC-NR-5GC/CONF/gnb.sa.band78.fr1.106PRB.usrpb210.conf:/opt/oai-gnb/etc/gnb.conf:ro   --entrypoint /opt/oai-gnb/bin/nr-softmodem   oai-gnb-cuda:latest   -O /opt/oai-gnb/etc/gnb.conf   --sa   -E   -d   --continuous-tx   --gNBs.[0].min_rxtxtime 6  --RUs.[0].att_rx 20 --RUs.[0].att_tx 20 
 ```
 Without (recommended) X11 NR scope:
 ```bash
-docker run --rm -it   --gpus all   --network host   --privileged   -v /dev/bus/usb:/dev/bus/usb   -v ~/sionna-rk/nr-softmodem-dev:/opt/oai-gnb/bin/nr-softmodem:ro   -v ~/sionna-rk/ext/openairinterface5g/targets/PROJECTS/GENERIC-NR-5GC/CONF/fiu_n78.conf:/opt/oai-gnb/etc/gnb.conf:ro   --entrypoint /opt/oai-gnb/bin/nr-softmodem   oai-gnb-cuda:latest   -O /opt/oai-gnb/etc/gnb.conf   --sa   -E     --continuous-tx   --gNBs.[0].min_rxtxtime 6   --RUs.[0].if_freq 500000000 --RUs.[0].att_rx 20 --RUs.[0].att_tx 20
+docker run --rm -it   --gpus all   --network host   --privileged   -v /dev/bus/usb:/dev/bus/usb   -v ~/sionna-rk/nr-softmodem-dev:/opt/oai-gnb/bin/nr-softmodem:ro   -v ~/sionna-rk/ext/openairinterface5g/targets/PROJECTS/GENERIC-NR-5GC/CONF/gnb.sa.band78.fr1.106PRB.usrpb210.conf:/opt/oai-gnb/etc/gnb.conf:ro   --entrypoint /opt/oai-gnb/bin/nr-softmodem   oai-gnb-cuda:latest   -O /opt/oai-gnb/etc/gnb.conf   --sa   -E     --continuous-tx   --gNBs.[0].min_rxtxtime 6  --RUs.[0].att_rx 20 --RUs.[0].att_tx 20
 ```
 
 ### 5. Launch the UE
