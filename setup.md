@@ -368,6 +368,24 @@ docker build \
 
 # 13. Build the OAI CUDA gNB
 
+Follow this tutorial to compile the actual gNB: https://gitlab.eurecom.fr/oai/openairinterface5g/-/blob/develop/doc/NR_SA_Tutorial_OAI_nrUE.md?ref_type=heads
+
+In particular, 
+
+```
+# Install OAI dependencies
+cd ~/openairinterface5g/cmake_targets
+./build_oai -I
+
+# nrscope dependencies
+sudo apt install -y libforms-dev libforms-bin
+
+# Build OAI gNB
+cd ~/openairinterface5g/cmake_targets
+./build_oai -w USRP --ninja --nrUE --gNB --build-lib "nrscope" -C
+```
+
+
 ```bash id="avlmxd"
 cd ~/sionna-rk/ext/openairinterface5g
 
